@@ -22,13 +22,18 @@ class AppClass extends Component {
     const {type, endPoint, userName} = param
       try {
         const response = await axios.post(`${URL + endPoint}`,{username: userName})
-          console.log(response);
-          this.props.dispatchCard({type: type, payload: response.data}); 
+          // console.log(response);
+          if(response.data) this.props.dispatchCard({type: type, payload: response.data}); 
         } 
       catch (error) {
           console.log('Error Dispatching',error);
     }
   }
+
+  currentstate = () =>{
+    console.log(this.props);
+  }
+
 
   render() {
     return (
@@ -46,11 +51,21 @@ class AppClass extends Component {
           <button onClick={()=>this.fetchingData({type:START_GAME, endPoint:'/start', userName:this.state.inputName})}>Start</button>
           <button onClick={()=>this.fetchingData({type:DRAW_CARD, endPoint:'/hit', userName:this.state.inputName})}>Hit</button>        
           <button onClick={()=>this.fetchingData({type:STOP, endPoint:'/stand', userName:this.state.inputName})}>Stand</button>
+          <button onClick={()=>this.currentstate()}>LOG</button>
         </div>
       </>
     );
   }
-
 }
 
-export default connect(null, {dispatchCard})(AppClass);
+const mapStateToProps = (state) => ({
+  dealer:state.cards.dealer, 
+  palyer:state.cards.palyer, 
+  result:state.cards.result
+})
+
+const mapDispatchToPorp = {
+  dispatchCard
+}
+
+export default connect(mapStateToProps, mapDispatchToPorp)(AppClass);

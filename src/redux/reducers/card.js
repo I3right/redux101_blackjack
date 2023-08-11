@@ -42,7 +42,6 @@ export default function (state = initialState, action) {
         return {
           ...state,
           player: {
-            username: payload.player.cards,
             cards: [...state.player.cards, payload.player.cards],
             score: payload.player.score,
           },
