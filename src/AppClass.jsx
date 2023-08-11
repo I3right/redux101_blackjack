@@ -1,39 +1,54 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {dispatchCard,DRAW_CARD,START_GAME,STOP} from './redux/actions/card'
 
-class Counter extends Component {
-  constructor(props) {
+import axios from "axios"
+const URL = 'http://localhost:3001/api'
+class AppClass extends Component {
+  constructor(props){
     super(props);
-
     this.state = {
-      count: 0,
-    };
-
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+      inputName:''
+    }
   }
 
-  increment() {
-    this.setState(prevState => ({
-      count: prevState.count + 1,
-    }));
+  handleInputChange = (event) =>{
+    this.setState({inputName: event.target.value})
   }
 
-  decrement() {
-    this.setState(prevState => ({
-      count: prevState.count - 1,
-    }));
+  fetchingData = async (param) => {
+    const {type, endPoint, userName} = param
+      console.table(param);
+      try {
+        const response = await axios.post(`${URL+endPoint}`,{username:userName})
+          // console.table(response);
+          dispatch(dispatchCard({type:type, payload:response.data}));         
+        } 
+      catch (error) {
+          console.log('Error Dispatching',error);
+    }
   }
 
   render() {
     return (
-      <div>
-        <h1>Counter App</h1>
-        <p>Count: {this.state.count}</p>
-        <button onClick={this.increment}>Increment</button>
-        <button onClick={this.decrement}>Decrement</button>
-      </div>
+      <>
+        <div className='result-group'>
+          <h1>Black Jack</h1>
+          <p>Result: NONE</p>
+        </div>
+
+        <div className='input-group'>
+          <input type='text' onChange={this.handleInputChange} value={this.state.inputName}/>
+        </div>
+
+        <div className='btn-group'>
+          <button onClick={()=>this.fetchingData({type:START_GAME, endPoint:'/start', userName:this.state.inputName})}>Start</button>
+          <button onClick={()=>this.fetchingData({type:DRAW_CARD, endPoint:'/hit', userName:this.state.inputName})}>Hit</button>        
+          <button onClick={()=>this.fetchingData({type:STOP, endPoint:'/stand', userName:this.state.inputName})}>Stand</button>
+        </div>
+      </>
     );
   }
 }
 
-export default Counter;
+export default connect(null,{dispatchCard})(AppClass);

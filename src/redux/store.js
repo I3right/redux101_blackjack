@@ -1,11 +1,12 @@
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import taskReducer from "./reducers/card";
+import blackJack from "./reducers/card";
 
 const store = createStore (
-    taskReducer,
-    composeWithDevTools()
+    blackJack,
+    composeWithDevTools(applyMiddleware(thunk))
 );
 
 export default store
