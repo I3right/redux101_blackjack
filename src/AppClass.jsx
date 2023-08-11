@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {dispatchCard,DRAW_CARD,START_GAME,STOP} from './redux/actions/card'
+import {DRAW_CARD,START_GAME,STOP} from './redux/actions/card'
+import {dispatchCard} from './redux/actions/card'
 
 import axios from "axios"
 const URL = 'http://localhost:3001/api'
+
 class AppClass extends Component {
   constructor(props){
     super(props);
@@ -18,11 +20,10 @@ class AppClass extends Component {
 
   fetchingData = async (param) => {
     const {type, endPoint, userName} = param
-      console.table(param);
       try {
-        const response = await axios.post(`${URL+endPoint}`,{username:userName})
-          // console.table(response);
-          dispatch(dispatchCard({type:type, payload:response.data}));         
+        const response = await axios.post(`${URL + endPoint}`,{username: userName})
+          console.log(response);
+          this.props.dispatchCard({type: type, payload: response.data}); 
         } 
       catch (error) {
           console.log('Error Dispatching',error);
@@ -49,6 +50,7 @@ class AppClass extends Component {
       </>
     );
   }
+
 }
 
-export default connect(null,{dispatchCard})(AppClass);
+export default connect(null, {dispatchCard})(AppClass);

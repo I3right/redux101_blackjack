@@ -2,10 +2,10 @@ import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import blackJack from "./reducers/card";
+import rootReducer from "./reducers/index";
 
 const store = createStore (
-    blackJack,
+    rootReducer,
     composeWithDevTools(applyMiddleware(thunk))
 );
 

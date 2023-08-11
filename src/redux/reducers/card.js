@@ -14,28 +14,31 @@ const initialState = {
     
 };
 
-export default function blackJack (state = initialState, action) {
+export default function (state = initialState, action) {
+  // console.log('reducer state',state);
+  // console.log('reducer action',action);
+
   const { type, payload } = action;
   // console.log(type,payload);
 
   switch (type) {
-    case "START_GAME":
+    case START_GAME:
       return {
         ...state,
-          dealer: {
-            cards: payload.dealer.cards,
-            score: payload.dealer.score,
-          },
-          player: {
-            username: payload.player.cards,
-            cards: payload.player.cards,
-            score: payload.player.score,
-          },
-          result: payload.result,
+        dealer: {
+          cards: payload.dealer.cards,
+          score: payload.dealer.score,
+        },
+        player: {
+          username: payload.player.cards,
+          cards: payload.player.cards,
+          score: payload.player.score,
+        },
+        result: payload.result,
       };
       
       
-    case "DRAW_CARD":
+    case DRAW_CARD:
         return {
           ...state,
           player: {
@@ -47,7 +50,7 @@ export default function blackJack (state = initialState, action) {
         };
       
       
-    case "STOP":
+    case STOP:
       return {
         ...state,
         dealer: {
