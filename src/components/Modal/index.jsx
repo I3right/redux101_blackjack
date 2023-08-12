@@ -15,18 +15,18 @@ const index = (props) => {
         color : 'white',
       }
     }
-    if(word === 'Win' ) {
+    if(word === 'Win' || word === 'Blackjack') {
       caption = 'You Win';
       style = {
         backgroundColor : 'green',
         color : 'white',
       }
     }
-    if(word === 'Tie' ) {
+    if(word === 'Push' ) {
       caption = 'You Tie';
       style = {
         backgroundColor : 'orange',
-        color : 'black',
+        color : 'white',
       }
 
     }

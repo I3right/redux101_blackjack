@@ -22,6 +22,12 @@ export class Cards extends Component {
               :card.suit === 'S' ? '♠'
               : '♦' }
               </span>
+              <figure className="bg-suit">
+              {card.suit === 'H' ? '♥' 
+              :card.suit === 'C' ? '♣' 
+              :card.suit === 'S' ? '♠'
+              : '♦' }
+              </figure>
             </div>
           )
         })}
