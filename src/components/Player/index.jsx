@@ -1,0 +1,30 @@
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+import Cards from '../Cards'
+
+export class Player extends Component {
+  render() {
+    const {player} = this.props
+    // console.log(player.cards);
+
+    return (
+      <div className="player">
+        <div className="title">
+              {player.username}, Score: 
+            <span className="score">
+              {player.score}
+            </span>
+        </div>
+
+        <Cards cards={player.cards} name='player'/>
+      </div>
+        
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {player: state.cards.player}
+};
+
+export default connect(mapStateToProps)(Player);

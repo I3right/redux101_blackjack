@@ -1,0 +1,130 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(56, 55, 55);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container>div{
+    height: 80vh;
+    width: 1280px;
+    
+    background-color: rgb(229, 229, 229);
+    border-radius: 0.5rem;
+    padding: 3rem 2rem;
+    
+    position: relative;
+}
+
+.title {
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    background-color: rgba(212, 220, 230, 0.602);
+}
+
+.score {
+    color: red;
+    margin-left: 1rem;
+    font-size: 2rem;
+}
+
+.game-controler header{
+    text-align: center;
+}
+h1{
+    font-size: 10rem;
+    text-shadow: 0px 0px 20px gold;
+}
+
+.game-controler header p{
+    font-size: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(166, 219, 240);
+    padding: 1rem 0;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.game-controler header p span {
+    margin-left: 2rem;
+    
+}
+
+.input-group{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.input-group input{
+    width: 100%;
+    background-color: #fcfcfc;
+    border: transparent;
+    padding: .5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    outline: transparent;
+    padding-left: 1.5rem;
+}
+
+.input-group input:hover{
+    border: rgb(166, 219, 240);
+
+}
+
+.btn-group{
+    width: 100%;
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-group > *{
+    flex:1;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: transparent;
+    border-radius: 1rem;
+}
+
+.btn-group > *:hover{
+    background-color: rgb(73, 73, 73);
+    color: #fcfcfc;
+    cursor: pointer; 
+}
+
+.btn-group > *:active{
+    background-color: rgb(181, 184, 184);
+}
+
+.game-status{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    margin-top: 2rem;
+}
+
+@media (min-height: 700px) {
+    .game-status {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .player,.dealer{
+        width: 50%;
+    }
+
+    .card-group{
+
+        overflow-x:auto ;
+    }
+}

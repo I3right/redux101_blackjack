@@ -23,6 +23,8 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case START_GAME:
+    case DRAW_CARD:
+    case STOP:
       return {
         ...state,
         dealer: {
@@ -30,34 +32,34 @@ export default function (state = initialState, action) {
           score: payload.dealer.score,
         },
         player: {
-          username: payload.player.cards,
+          username: payload.player.username,
           cards: payload.player.cards,
           score: payload.player.score,
         },
         result: payload.result,
       };
       
+      // old draw
+      //   return {
+      //     ...state,
+      //     player: {
+      //       username: payload.player.username,
+      //       cards: payload.player.cards,
+      //       score: payload.player.score,
+      //     },
+      //     result: payload.result,
+      //   };
       
-    case DRAW_CARD:
-        return {
-          ...state,
-          player: {
-            cards: [...state.player.cards, payload.player.cards],
-            score: payload.player.score,
-          },
-          result: payload.result,
-        };
       
-      
-    case STOP:
-      return {
-        ...state,
-        dealer: {
-          cards: [...state.dealer.cards, payload.dealer.cards],
-          score: payload.dealer.score,
-        },
-        result: payload.result,
-      };
+    
+      // return {
+      //   ...state,
+      //   dealer: {
+      //     cards: payload.dealer.cards,
+      //     score: payload.dealer.score,
+      //   },
+      //   result: payload.result,
+      // };
 
     default:
       return state;

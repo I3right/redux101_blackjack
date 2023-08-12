@@ -1,0 +1,32 @@
+.card-group{
+    color: #343434;
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    gap: .5rem;
+}
+
+.card{
+    min-width: 13rem;
+    height: 100%;
+    
+    background-color: #fff;
+    border: 2px solid rgb(212, 180, 0);
+
+    font-size: 4rem;
+    border-radius: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.card > span.card-suit{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    text-shadow: 0px 0px 10px gold;
+    /* font-size: 3rem; */
+}
