@@ -12,11 +12,11 @@ export default function (state = initialState, action) {
   // console.log('paylaod',payload);
 
   switch (type) {
-    case SET_BET:
-      return {
-        ...state,
-        betValue: payload.betValue
-      };
+    // case SET_BET:
+    //   return {
+    //     ...state,
+    //     betValue: payload.betValue
+    //   };
     case BETTING:
       return {
       ...state,

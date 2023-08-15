@@ -38,7 +38,7 @@ span.card-suit{
 
     top: 1rem;
     right: 1rem;
-    text-shadow: 0px 0px 10px gold;
+    /* text-shadow: 0px 0px 10px gold; */
 }
 
 .bg-suit{

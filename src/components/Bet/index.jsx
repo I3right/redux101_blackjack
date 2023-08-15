@@ -37,16 +37,16 @@ const Bet = () => {
   },[result])
 
 
-  console.log('betting');
+  // console.log('betting');
 
-  const callBetting = () => {
-    const params = {
-      type: SET_BET,
-      payload: {betValue:state}
-    }
+  // const callBetting = () => {
+  //   const params = {
+  //     type: SET_BET,
+  //     payload: {betValue:state}
+  //   }
 
-    dispatch(dispatchBet(params))
-  }
+  //   dispatch(dispatchBet(params))
+  // }
 
   const handleOnChangeBetValue = (val) => {
     setState(val.target.value);

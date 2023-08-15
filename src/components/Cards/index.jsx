@@ -16,13 +16,13 @@ export class Cards extends Component {
               <span className="card-value">
                 {card.rank}
               </span>
-              <span className="card-suit">
+              <span className="card-suit" style={{color : card.suit === 'H' || card.suit === 'D' ? "red" : "black" }}>
               {card.suit === 'H' ? '♥' 
               :card.suit === 'C' ? '♣' 
               :card.suit === 'S' ? '♠'
               : '♦' }
               </span>
-              <figure className="bg-suit">
+              <figure className="bg-suit" style={{color : card.suit === 'H' || card.suit === 'D' ? "red" : "black" }}>
               {card.suit === 'H' ? '♥' 
               :card.suit === 'C' ? '♣' 
               :card.suit === 'S' ? '♠'
