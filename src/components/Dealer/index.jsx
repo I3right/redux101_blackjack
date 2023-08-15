@@ -10,10 +10,7 @@ export class Dealer extends Component {
     return (
       <div className="dealer">
         <div className="title">
-            Dealer, Score: 
-            <span className="score">
-              {dealer.score}
-            </span>
+            <strong>Dealer</strong>, Score: <span className="score"> {dealer.score}</span>
         </div>
 
         <Cards cards={dealer.cards} name='dealer'/>

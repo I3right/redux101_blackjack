@@ -10,10 +10,8 @@ export class Player extends Component {
     return (
       <div className="player">
         <div className="title">
-              {player.username}, Score: 
-            <span className="score">
-              {player.score}
-            </span>
+              <strong>{player.username}</strong>
+              , Score: <span className="score"> {player.score}</span>
         </div>
 
         <Cards cards={player.cards} name='player'/>
