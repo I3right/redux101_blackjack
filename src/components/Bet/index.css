@@ -1,0 +1,49 @@
+.beting-group {
+    width: 100%;
+    /* height: 1.5rem; */
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.beting-group button:hover{
+    background-color: rgb(73, 73, 73);
+    color: #fcfcfc;
+    cursor: pointer; 
+}
+
+.beting-group button:active{
+    background-color: rgb(181, 184, 184);
+}
+
+.betting-value * {
+    width: 100px;
+    height: 2rem;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border: transparent;
+}
+
+.betting-value-percise * {
+    width: 50px;
+    height: 2rem;
+    padding: 5px;
+    margin-right: 0.5rem;
+    border: transparent;
+}
+
+.betting-value-percise input {
+    /* width: 100px; */
+    text-align: center;
+    outline: transparent;
+}
+
+.betting-result{
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.betting-result strong {
+    margin-right: 0.5rem;
+}

@@ -3,7 +3,7 @@ import './index.css'
 
 const index = (props) => {
   const {word} = props
-  console.log('modal',props);
+  // console.log('modal',props);
   
   let style = {}
   let caption = ''
@@ -28,11 +28,10 @@ const index = (props) => {
         backgroundColor : 'orange',
         color : 'white',
       }
-
     }
 
-  console.log('caption',caption);
-  console.log('style',style);
+  // console.log('caption',caption);
+  // console.log('style',style);
 
   return (
     <div className='modal-container' style={style}>

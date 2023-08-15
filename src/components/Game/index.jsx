@@ -6,6 +6,7 @@ import {dispatchCard} from '../../redux/actions/card.js'
 import Modal from '../Modal'
 
 import axios from "axios"
+import Bet from "../Bet/index.jsx";
 const URL = 'http://localhost:3001/api'
 
 export class index extends Component {
@@ -34,10 +35,11 @@ export class index extends Component {
 
   render() {
     const {result} = this.props;
-    const start = 'Enter your name and click start button to play.';
+    const startWord = 'Enter your name and click start button to play.';
     // console.log('game',result);
     // console.log(this.props)
     // console.log(Boolean(result))
+    
     return (
       <>
         <div className='game-controler'>
@@ -53,12 +55,15 @@ export class index extends Component {
                 {result === ''? start : result === 'None'? 'Playing' : result}
               </span>
             </p> */}
-            { result === '' && <p>{start}</p> }
+            { result === '' && <p>{startWord}</p> }
           </header>
 
           <div className='input-group'>
             <input type='text' onChange={this.handleInputChange} value={this.state.inputName} placeholder="Enter your name here"/>
           </div>
+
+          { result !== '' && <Bet/> }
+          
 
           <div className='btn-group'>
             <button onClick={()=>this.fetchingData({type:START_GAME, endPoint:'/start', userName:this.state.inputName})}>Start</button>
