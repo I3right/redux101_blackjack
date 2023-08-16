@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
+
 import {SET_BET,BETTING} from '../../redux/actions/bet'
 import {dispatchBet} from '../../redux/actions/bet'
 
@@ -14,6 +14,8 @@ const Bet = () => {
   const {result} = useSelector((state) => state.cards)
 
   const endResulArr = ['Bust','Lose','Win','Push','Blackjack'] 
+  let half = Math.floor(balance/2);
+  let quater = Math.floor(balance/4);
 
   useEffect(()=>{
     if(endResulArr.includes(result)) {
@@ -36,24 +38,9 @@ const Bet = () => {
     };
   },[result])
 
-
-  // console.log('betting');
-
-  // const callBetting = () => {
-  //   const params = {
-  //     type: SET_BET,
-  //     payload: {betValue:state}
-  //   }
-
-  //   dispatch(dispatchBet(params))
-  // }
-
   const handleOnChangeBetValue = (val) => {
     setState(val.target.value);
   }
-
-  let half = Math.floor(balance/2);
-  let quater = Math.floor(balance/4);
 
   const decreaseBetValue = () => {
     if(state <= 0) {

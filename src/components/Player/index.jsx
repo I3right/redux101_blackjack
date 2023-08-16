@@ -5,7 +5,6 @@ import Cards from '../Cards'
 export class Player extends Component {
   render() {
     const {player} = this.props
-    // console.log(player.cards);
 
     return (
       <div className="player">

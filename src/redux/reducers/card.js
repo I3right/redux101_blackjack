@@ -1,4 +1,4 @@
-import { START_GAME, DRAW_CARD, STOP } from "../actions/card";
+import { SET_START_GAME, SET_DRAW_CARD, SET_END_GAME } from "../actions/card";
 
 const initialState = {
     dealer: {
@@ -22,9 +22,9 @@ export default function (state = initialState, action) {
   // console.log(type,payload);
 
   switch (type) {
-    case START_GAME:
-    case DRAW_CARD:
-    case STOP:
+    case SET_START_GAME:
+    case SET_DRAW_CARD:
+    case SET_END_GAME :
       return {
         ...state,
         dealer: {
