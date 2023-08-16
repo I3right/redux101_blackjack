@@ -31,7 +31,7 @@ const index = (props) => {
   return (
     <div className='modal-container' style={style}>
         <p>{caption}</p>
-        <p>~ Press start to play agian ~</p>
+        <p>~ Press start button to play agian ~</p>
     </div>
   )
 }

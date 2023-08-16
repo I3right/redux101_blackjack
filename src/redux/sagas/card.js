@@ -26,7 +26,7 @@ function* onStartGame(action) {
   }
 }
 
-function* onDrawCard(action) {
+function* onDrawCard() {
   const stateUserName = state => state.cards.player.username;
   try {
     const username = yield select(stateUserName);
@@ -37,7 +37,7 @@ function* onDrawCard(action) {
   }
 }
 
-function* onEndGame(action) {
+function* onEndGame() {
   const stateUserName = state => state.cards.player.username;
   try {
     const username = yield select(stateUserName);

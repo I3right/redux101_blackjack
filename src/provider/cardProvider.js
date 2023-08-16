@@ -1,9 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 
-export const cardProvider = () => {
-        try {
-            const response = axios.post(`${URL + endPoint}`,{username: userName})
-        } catch (error) {
-            
-        }
-}
+// export const cardProvider = () => {
+//         try {
+//             const response = axios.post(`${URL + endPoint}`,{username: userName})
+//         } catch (error) {
+
+//         }
+// }

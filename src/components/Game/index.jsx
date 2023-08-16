@@ -20,14 +20,13 @@ export class index extends Component {
 
   render() {
     const {result} = this.props;
-    const startWord = 'Enter your name and click start button to play.';
     
     return (
       <>
         <div className='game-controler'>
           <header>
             <h1>Black Jack</h1>
-            { result === '' && <p>{startWord}</p> }
+            { result === '' && <p>Enter your name and click start button to play.'</p> }
           </header>
 
           <div className='input-group'>

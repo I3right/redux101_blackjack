@@ -6,7 +6,6 @@ export const GET_DRAW_CARD = 'GET_DRAW_CARD'
 export const GET_END_GAME = 'GET_END_GAME'
 
 export function dispatchCard (param) {
-    // console.log(param)
     return {
         type: param.type,
         payload: param.payload
