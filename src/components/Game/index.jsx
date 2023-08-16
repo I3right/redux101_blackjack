@@ -39,8 +39,8 @@ export class index extends Component {
             <button onClick={()=>this.props.dispatchCard({ type:GET_START_GAME, payload:this.state.username })}>Start</button>
             { result !== '' &&
             <>
-              <button onClick={()=>this.props.dispatchCard({ type:GET_DRAW_CARD })}>Hit</button>        
-              <button onClick={()=>this.props.dispatchCard({ type:GET_END_GAME })}>Stand</button>
+              <button onClick={()=>this.props.dispatchCard({ type:GET_DRAW_CARD })} className={`${result !== 'None' ? 'disabled' : ''}`} >Hit</button>        
+              <button onClick={()=>this.props.dispatchCard({ type:GET_END_GAME })} className={`${result !== 'None' ? 'disabled' : ''}`} >Stand</button>
             </>
             }
           </div>

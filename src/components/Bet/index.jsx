@@ -58,9 +58,11 @@ const Bet = () => {
     }
   }
 
+  console.log(result);
+
   return (
     <div className='beting-group'>
-        <div className='betting-value'>
+        <div className={`betting-value ${result !== 'None' ? 'disabled' : ''}`} >
           <button onClick={() => setState(5)}>5 $</button>
           <button onClick={() => setState(10)}>10 $</button>
           <button onClick={() => setState(quater)}>{quater}$</button>
@@ -69,7 +71,7 @@ const Bet = () => {
           {/* <button onClick={()=>callBetting()}>BET</button> */}
         </div>
 
-        <div className='betting-value-percise'>
+        <div className={`betting-value-percise ${result !== 'None' ? 'disabled' : ''}`} >
           <button onClick={() => decreaseBetValue()}>-</button>
           <input type='numbe' value={state} onChange={(val)=>handleOnChangeBetValue(val)} max={balance}/>
           <button onClick={() => increaseBetValue()}>+</button>
