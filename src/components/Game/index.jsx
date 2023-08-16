@@ -26,7 +26,7 @@ export class index extends Component {
         <div className='game-controler'>
           <header>
             <h1>Black Jack</h1>
-            { result === '' && <p>Enter your name and click start button to play.'</p> }
+            { result === '' && <p>Enter your name and click start button to play.</p> }
           </header>
 
           <div className='input-group'>
@@ -37,8 +37,12 @@ export class index extends Component {
           
           <div className='btn-group'>
             <button onClick={()=>this.props.dispatchCard({ type:GET_START_GAME, payload:this.state.username })}>Start</button>
-            <button onClick={()=>this.props.dispatchCard({ type:GET_DRAW_CARD })}>Hit</button>        
-            <button onClick={()=>this.props.dispatchCard({ type:GET_END_GAME })}>Stand</button>
+            { result !== '' &&
+            <>
+              <button onClick={()=>this.props.dispatchCard({ type:GET_DRAW_CARD })}>Hit</button>        
+              <button onClick={()=>this.props.dispatchCard({ type:GET_END_GAME })}>Stand</button>
+            </>
+            }
           </div>
 
           {!(result === 'None'|| result === '') && <Modal word={result}/>}

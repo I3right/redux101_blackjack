@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {SET_BET,BETTING} from '../../redux/actions/bet'
+import {BETTING} from '../../redux/actions/bet'
 import {dispatchBet} from '../../redux/actions/bet'
 
 import './index.css'
