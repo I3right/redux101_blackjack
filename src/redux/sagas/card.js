@@ -17,7 +17,6 @@ async function fetchCard(payload) {
 
 // Worker function Logical Part
 function* onStartGame(action) {
-  console.log('username',action.payload );
   try {
     const data = yield call(fetchCard, { username:{username:action.payload} , endpoint: '/start'});
     yield put ({type:SET_START_GAME, payload: data})
@@ -27,9 +26,8 @@ function* onStartGame(action) {
 }
 
 function* onDrawCard() {
-  const stateUserName = state => state.cards.player.username;
   try {
-    const username = yield select(stateUserName);
+    const username = yield select(state => state.cards.player.username);
     const data = yield call(fetchCard, { username:{username:username} , endpoint: '/hit'});
     yield put ({type:SET_DRAW_CARD, payload: data})
   } catch (error) {
@@ -38,9 +36,8 @@ function* onDrawCard() {
 }
 
 function* onEndGame() {
-  const stateUserName = state => state.cards.player.username;
   try {
-    const username = yield select(stateUserName);
+    const username = yield select(state => state.cards.player.username);
     const data = yield call(fetchCard, { username:{username:username}  , endpoint: '/stand'});
     yield put ({type:SET_END_GAME, payload: data})
   } catch (error) {
